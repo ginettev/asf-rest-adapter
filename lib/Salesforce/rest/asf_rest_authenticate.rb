@@ -62,14 +62,14 @@ module Authenticate
         begin
           asf_rest_config = YAML::load(File.open(config_file))
 
-          auth_scheme =  asf_rest_config["asf-rest-config"] ["auth_scheme"]
+          auth_scheme =  asf_rest_config["asf-rest-config"]["auth_scheme"]
           puts "ASF-REST-Adapter setting:"
           puts "Auth name:" + auth_scheme
 
           #setup the default adapter with relevant auth schema (username/password) or (Omniauth)
           case auth_scheme
           when "username_password":
-              puts 'Setting up adapter using username/password'
+            puts 'Setting up adapter using username/password'
             username = asf_rest_config["asf-rest-config"]["username"]
             password = asf_rest_config["asf-rest-config"]["password"]
             login_svr = asf_rest_config["asf-rest-config"]["api_version"].to_s
@@ -84,8 +84,8 @@ module Authenticate
             puts 'Security Token: ' + security_token
             puts 'rest_svr: ' + rest_svr
             puts 'rest_version: ' + rest_version
-          when"omni_auth":
-              consumer_key = asf_rest_config["asf-rest-config"]["consumer_key"]
+          when "omni_auth":
+            consumer_key = asf_rest_config["asf-rest-config"]["consumer_key"]
             consumer_secret = asf_rest_config["asf-rest-config"]["consumer_secret"]
 
             puts "Salesforce consumer_key is:" + consumer_key.to_s

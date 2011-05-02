@@ -68,23 +68,23 @@ module Authenticate
 
           #setup the default adapter with relevant auth schema (username/password) or (Omniauth)
           case auth_scheme
-          when "username_password":
-            puts 'Setting up adapter using username/password'
-            username = asf_rest_config["asf-rest-config"]["username"]
-            password = asf_rest_config["asf-rest-config"]["password"]
-            login_svr = asf_rest_config["asf-rest-config"]["api_version"].to_s
-            api_version = asf_rest_config["asf-rest-config"]["api_version"].to_s
+            when "username_password"
+              puts 'Setting up adapter using username/password'
+              username = asf_rest_config["asf-rest-config"]["username"]
+              password = asf_rest_config["asf-rest-config"]["password"]
+              login_svr = asf_rest_config["asf-rest-config"]["api_version"].to_s
+              api_version = asf_rest_config["asf-rest-config"]["api_version"].to_s
 
-            puts "Salesforce url: " + asf_rest_config["asf-rest-config"]["url"]
-            puts "Username: " + username
-            puts "Password: " + password
-            puts "API Version " + login_svr
+              puts "Salesforce url: " + asf_rest_config["asf-rest-config"]["url"]
+              puts "Username: " + username
+              puts "Password: " + password
+              puts "API Version " + login_svr
 
-            security_token, rest_svr, rest_version = Salesforce::Rest::AsfRest.bootup_rest_adapter(username, password, api_version)
-            puts 'Security Token: ' + security_token
-            puts 'rest_svr: ' + rest_svr
-            puts 'rest_version: ' + rest_version
-          when "omni_auth":
+              security_token, rest_svr, rest_version = Salesforce::Rest::AsfRest.bootup_rest_adapter(username, password, api_version)
+              puts 'Security Token: ' + security_token
+              puts 'rest_svr: ' + rest_svr
+              puts 'rest_version: ' + rest_version
+          when "omni_auth"
             consumer_key = asf_rest_config["asf-rest-config"]["consumer_key"]
             consumer_secret = asf_rest_config["asf-rest-config"]["consumer_secret"]
 
